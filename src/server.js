@@ -1,10 +1,11 @@
 const { ServerError } = require('./utils/error.js')
 const { PORT } = require('../config.js')
+const path = require('path')
 const express = require('express')
 const app = express()
 
 const modelMiddleware = require('./middlewares/model.js')
-
+app.use(express.static(path.join(process.cwd(), 'files')))
 
 app.use(modelMiddleware)
 
